@@ -1,0 +1,64 @@
+@import "./variables";
+
+@mixin media($point: "small", $custom-max: 0) {
+  @if $point == "custom" {
+    @media screen and (min-width: $custom-max) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: map-get($breakpoints, $point)) {
+      @content;
+    }
+  }
+}
+
+@font-face {
+  font-weight: bold;
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+
+body {
+  color: $muted;
+  font-size: 18px;
+  font-family: Roboto, sans-serif;
+  line-height: 1.5;
+  background-color: #08020d;
+}
+
+h1 {
+  font-size: 60px;
+  font-style: bold;
+  line-height: 90px;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 18px;
+  font-style: bold;
+  line-height: 45px;
+  text-transform: capitalize;
+}
+
+.link {
+  color: $muted;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.containter {
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+@include media(xl) {
+  .containter {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}

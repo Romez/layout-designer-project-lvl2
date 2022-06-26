@@ -1,0 +1,69 @@
+@import "./variables";
+@import "./general";
+
+.header {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 17px;
+  align-items: start;
+  width: 100%;
+  font-size: 11px;
+}
+
+.logo {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  img {
+    max-width: 24px;
+    max-height: 24px;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+
+  a {
+    text-transform: uppercase;
+  }
+}
+
+.search {
+  width: 100%;
+  height: 25px;
+  padding: 5px 10px;
+  color: $white;
+  background: #3c3b3d;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+
+  &::placeholder {
+    color: #757575;
+    font-size: 13.3px;
+  }
+}
+
+@include media(sm) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .menu {
+    flex-direction: row;
+    gap: 24px;
+    margin-left: 5rem;
+  }
+
+  .search {
+    flex-basis: 248px;
+  }
+}
